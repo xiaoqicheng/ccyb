@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [gin_cc](#gin_cc)
+- [ccyb](#ccyb)
     - [现在开始](#现在开始)
     - [文件分层](#文件分层)
     - [输出格式统一封装](#输出格式统一封装)
@@ -11,7 +11,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# gin_cc
+# ccyb
 Gin best practices, gin development scaffolding, too late to explain, get on the bus.
 
 使用gin构建了企业级脚手架，代码简洁易读，可快速进行高效web开发。
