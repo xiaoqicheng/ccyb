@@ -29,14 +29,14 @@ go mod使用请查阅：
 https://blog.csdn.net/e421083458/article/details/89762113
 ```
 git clone 
-cd gin_cc
+cd ccyb
 go mod tidy
 ```
 - 运行脚本
 ```
 go run main.go
 
-➜  gin_cc git:(master) ✗ go run main.go
+➜  ccyb git:(master) ✗ go run main.go
 ------------------------------------------------------------------------
 [GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
 
