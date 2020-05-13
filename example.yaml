@@ -1,0 +1,68 @@
+# hosts
+env: test # test or prod
+bi_host: http://www.yourhost.com
+bi_data_host: bi-data address
+
+# mysql config
+mysql:
+  bi:
+    host: your mysql host
+    port: your mysql port
+    name: your database name
+    user: your database user
+    pass: your database password
+
+# mongo config
+mongo:
+  lt:
+    host: your mongo host
+    port: your mongo port
+    name: your mongo name
+    user: your mongo user
+    pass: your mongo password
+
+# redis config
+redis:
+  bi:
+    host: your redis host
+    port: your redis host
+    pass: your redis password
+    database: your redis database
+
+# log config
+log:
+  log_level: trace  # 日志打印最低级别
+  file_writer:
+    log_on: true
+    log_path: "./logs/gin_scaffold.inf.log"
+    rotate_log_path: "./logs/gin_scaffold.inf.log.%Y%M%D%H"
+    wf_log_path: "./logs/gin_scaffold.wf.log"
+    rotate_wf_log_path: "./logs/gin_scaffold.wf.log.%Y%M%D%H"
+  console_writer:     #工作台输出
+    log_on: false
+    color: false
+
+
+# mail config
+mail:
+  smtp:
+    host: smtp host
+    port: smtp port
+    user: smtp user
+    pass: smtp password
+
+# mail receiver collection
+mail_users:
+  sender:
+    name: from user
+    addr: from mail address
+  report:
+    to:
+      - name: to user
+        addr: to mail
+    cc:
+      - name: cc user
+        addr: cc mail
+    bcc:
+      - name: bcc user
+        addr: bcc mail
