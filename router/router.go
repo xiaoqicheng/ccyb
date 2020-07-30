@@ -1,26 +1,26 @@
 package router
 
 import (
-	auth "cy/controller/auth"
+	"cy/controller/authController"
 	"cy/middleware"
 	"github.com/gin-gonic/gin"
 )
 
 func InitRouter(middlewares ...gin.HandlerFunc) *gin.Engine {
 
-	router := gin.Default()
+	router := gin.New()
 
 	router.Use(middleware.RequestLog(), middleware.TranslationMiddleware(), middleware.RecoveryMiddleware())
 
-	router.POST("register", auth.Register)
-	router.POST("login", auth.Login)
+	router.POST("register", authController.Register)
+	router.POST("login", authController.Login)
 
 	/**
 	@desc 改分组下验证token
 	*/
 	authRization := router.Group("/", middleware.JWTAuth())
 	{
-		authRization.POST("/user-info", auth.UserInfo)
+		authRization.POST("/user-info", authController.UserInfo)
 	}
 
 	return router

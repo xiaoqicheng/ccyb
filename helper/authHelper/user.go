@@ -1,8 +1,8 @@
-package helper
+package authHelper
 
 import (
 	"cy/config"
-	model "cy/model/auth"
+	"cy/model/authModel"
 	"errors"
 	"time"
 )
@@ -10,7 +10,7 @@ import (
 /**
 @desc 用户注册
 */
-func Save(user model.User) int {
+func Save(user authModel.User) int {
 
 	user.CreatedAt = time.Now().Unix()
 	user.UpdatedAt = time.Now().Unix()
@@ -20,9 +20,9 @@ func Save(user model.User) int {
 	return user.Id
 }
 
-func Userinfo(userId int) (userInfo []model.User, err error) {
+func Userinfo(userId int) (userInfo []authModel.User, err error) {
 
-	userInfo = model.UserInfo(userId)
+	userInfo = authModel.UserInfo(userId)
 
 	if len(userInfo) == 0 {
 		return userInfo, errors.New("id参数错误")

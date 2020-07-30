@@ -31,7 +31,7 @@ func RequestInLog(c *gin.Context) {
 	c.Request.Body = ioutil.NopCloser(bytes.NewBuffer(bodyBytes)) // Write body back
 
 	lib.Log.TagInfo(traceContext, lib.DLTagRequestIn, map[string]interface{}{
-		"uri":    c.Request.RequestURI,
+		"url":    c.Request.RequestURI,
 		"method": c.Request.Method,
 		"args":   c.Request.PostForm,
 		"body":   string(bodyBytes),
@@ -49,7 +49,7 @@ func RequestOutLog(c *gin.Context) {
 	startExecTime, _ := st.(time.Time)
 
 	common.ComLogNotice(c, lib.DLTagRequestOut, map[string]interface{}{
-		"uri":       c.Request.RequestURI,
+		"url":       c.Request.RequestURI,
 		"method":    c.Request.Method,
 		"args":      c.Request.PostForm,
 		"from":      c.ClientIP(),

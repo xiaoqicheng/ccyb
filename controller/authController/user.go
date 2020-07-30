@@ -1,4 +1,4 @@
-package controller
+package authController
 
 import (
 	"cy/errorCode"

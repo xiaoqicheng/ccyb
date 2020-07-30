@@ -1,4 +1,4 @@
-package model
+package authModel
 
 import (
 	"cy/config"

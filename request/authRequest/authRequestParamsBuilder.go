@@ -1,4 +1,4 @@
-package request
+package authRequest
 
 import (
 	"cy/common"

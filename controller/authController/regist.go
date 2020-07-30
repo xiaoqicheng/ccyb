@@ -1,19 +1,19 @@
-package controller
+package authController
 
 import (
 	"cy/errorCode"
-	authHelper "cy/helper/authHelper"
+	"cy/helper/authHelper"
 	"cy/middleware"
-	model "cy/model/auth"
-	request "cy/request/auth"
+	"cy/model/authModel"
+	"cy/request/authRequest"
 	"errors"
 	"github.com/gin-gonic/gin"
 	"strconv"
 )
 
 func Register(c *gin.Context) {
-	registerInputParams := &request.RegisterInput{}
-	var user model.User
+	registerInputParams := &authRequest.RegisterInput{}
+	var user authModel.User
 	if err := registerInputParams.ParseRegisterParams(c); err != nil {
 		middleware.ResponseError(c, errorCode.ErrParamFormat, err)
 		return
@@ -24,7 +24,7 @@ func Register(c *gin.Context) {
 	}
 
 	// 校验用户名是否存在
-	if ok := model.IExist(registerInputParams.UserName); ok {
+	if ok := authModel.IExist(registerInputParams.UserName); ok {
 		middleware.ResponseError(c, errorCode.ErrParamFormat, errors.New("用户名已存在，请登录"))
 		return
 	}

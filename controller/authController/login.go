@@ -1,10 +1,10 @@
-package controller
+package authController
 
 import (
 	"cy/errorCode"
 	"cy/middleware"
-	model "cy/model/auth"
-	request "cy/request/auth"
+	"cy/model/authModel"
+	"cy/request/authRequest"
 	"errors"
 	"github.com/gin-gonic/gin"
 	"strconv"
@@ -12,7 +12,7 @@ import (
 
 func Login(c *gin.Context) {
 	//参数校验
-	loginInputParams := &request.LoginInput{}
+	loginInputParams := &authRequest.LoginInput{}
 	err := loginInputParams.ParseLoginParams(c)
 
 	if err != nil {
@@ -21,13 +21,13 @@ func Login(c *gin.Context) {
 	}
 
 	// 校验用户名是否存在
-	if ok := model.IExist(loginInputParams.UserName); !ok {
+	if ok := authModel.IExist(loginInputParams.UserName); !ok {
 		middleware.ResponseError(c, errorCode.ErrParamFormat, errors.New("无效用户名"))
 		return
 	}
 
 	//校验密码是否正确
-	userInfo, ok := model.IsRight(loginInputParams.UserName, loginInputParams.Password)
+	userInfo, ok := authModel.IsRight(loginInputParams.UserName, loginInputParams.Password)
 	if !ok {
 		middleware.ResponseError(c, errorCode.ErrParamFormat, errors.New("密码不正确"))
 		return
